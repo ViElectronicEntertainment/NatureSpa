@@ -1,0 +1,42 @@
+/* Mensaje Gris */
+.message {
+    font-size: 24px;
+    color: gray;
+    opacity: 0.4;
+}
+
+/* Links */
+
+a:link {
+    color: #A6C156; 
+    background-color: transparent; 
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: #5C682F;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #7B8C3E;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: #A6C156;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  .boton_uno{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    border-radius: 6px;
+    border: 2px solid #A6C156;
+  }
