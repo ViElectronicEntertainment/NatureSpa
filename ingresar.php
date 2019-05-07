@@ -24,6 +24,10 @@
                 <form action='administrar.php' method='post'>
                     <table>
                         <tr>
+                            <td>Hora:</td>
+                            <td><input type='text' name='hora'></td>
+                        </tr>
+                        <tr>
                             <td>Nombre:</td>
                             <td> <input type='text' name='nombre'></td>
                         </tr>
@@ -32,7 +36,11 @@
                             <td><input type='text' name='servicio'></td>
                         </tr>
                         <tr>
-                            <td>Fecha y Hora:</td>
+                            <td>Precio:</td>
+                            <td><input type='text' name='valor'></td>
+                        </tr>
+                        <tr>
+                            <td>Fecha:</td>
                             <td><input type='text' name='fecha'></td>
                         </tr>
                         <input type='hidden' name='insertar' value='insertar'>

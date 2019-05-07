@@ -6,6 +6,15 @@ Esta es la aplicacion oficial de NatureSpa, queremos brindarle a nuestros client
 
 Historial de cambios de la App
 
+### 0.0.2 - Adaptative Table
+
+Estamos haciendo ajustes en la app, lo que creemos mas importante es agregar mas campos a la base de datos
+
+* **[NEW!]** *Hora* - Nuevo valor en la App, hora de agenda.
+* **[NEW!]** *Valor* - Nuevo valor en la App, Valor del servicio.
+* **[NEW!]** *Style* - Hemos agregado estilo a nivel general de la app.
+* **[Pro]** *Ajustes* - Estamos ajustando los nombres de las funciones y organizando el proyecto en general.
+
 ### 0.0.1 - NatureCrud
 
 La primera version de nature Spa se llama NatureCrud

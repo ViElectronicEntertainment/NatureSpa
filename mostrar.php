@@ -1,8 +1,8 @@
 <?php
-//incluye la clase Libro y CrudLibro
-require_once('crud_libro.php');
-require_once('libro.php');
-$crud=new CrudLibro();
+//incluye la clase Libro y CrudCitas
+require_once('crud.php');
+require_once('citas.php');
+$crud=new CrudCitas();
 $libro= new Libro();
 //obtiene todos los libros con el método mostrar de la clase crud
 $listaLibros=$crud->mostrar();
@@ -39,8 +39,10 @@ $listaLibros=$crud->mostrar();
                         <table class="table card-table table-vcenter text-nowrap">
                             <thead>
                                 <tr>
-                                    <th class="w-1">Nombre</th>
+                                    <th class="w-1">Hora</th>
+                                    <th>Nombre</th>
                                     <th>Servicio</th>
+                                    <th>Precio</th>
                                     <th>Fecha</th>
                                     <th></th>
                                     <th></th>
@@ -49,13 +51,15 @@ $listaLibros=$crud->mostrar();
                             <tbody>
 							<?php foreach ($listaLibros as $libro) {?>
                                 <tr>
+                                    <td><?php echo $libro->getHora() ?></td>
 									<td><?php echo $libro->getNombre() ?></td>
 									<td><?php echo $libro->getServicio() ?></td>
+									<td><?php echo $libro->getValor() ?></td>
 									<td><?php echo $libro->getFecha()?> </td>
 									<td><a href="actualizar.php?id=<?php echo $libro->getId()?>&accion=a">
 										<i class="far fa-edit"></i></a>
 									</td>
-									<td><a href="actualizar.php?id=<?php echo $libro->getId()?>&accion=e">
+									<td><a href="administrar.php?id=<?php echo $libro->getId()?>&accion=e">
 										<i class="far fa-trash-alt"></i></a>
 									</td>
 								</tr>

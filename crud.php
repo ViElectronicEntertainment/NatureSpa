@@ -2,16 +2,18 @@
 // incluye la clase Db
 require_once('conexion.php');
 
-	class CrudLibro{
+	class CrudCitas{
 		// constructor de la clase
 		public function __construct(){}
 
 		// método para insertar, recibe como parámetro un objeto de tipo libro
 		public function insertar($libro){
 			$db=Db::conectar();
-			$insert=$db->prepare('INSERT INTO citas values(NULL,:nombre,:servicio,:fecha)');
+			$insert=$db->prepare('INSERT INTO citas values(NULL,:hora,:nombre,:servicio,:valor,:fecha)');
+			$insert->bindValue('hora',$libro->getHora());
 			$insert->bindValue('nombre',$libro->getNombre());
 			$insert->bindValue('servicio',$libro->getServicio());
+			$insert->bindValue('valor',$libro->getValor());
 			$insert->bindValue('fecha',$libro->getFecha());
 			$insert->execute();
 		}
@@ -25,8 +27,10 @@ require_once('conexion.php');
 			foreach($select->fetchAll() as $libro){
 				$myLibro= new Libro();
 				$myLibro->setId($libro['id']);
+				$myLibro->setHora($libro['hora']);
 				$myLibro->setNombre($libro['nombre']);
 				$myLibro->setServicio($libro['servicio']);
+				$myLibro->setValor($libro['valor']);
 				$myLibro->setFecha($libro['fecha']);
 				$listaLibros[]=$myLibro;
 			}
@@ -50,8 +54,10 @@ require_once('conexion.php');
 			$libro=$select->fetch();
 			$myLibro= new Libro();
 			$myLibro->setId($libro['id']);
+			$myLibro->setHora($libro['hora']);
 			$myLibro->setNombre($libro['nombre']);
 			$myLibro->setServicio($libro['servicio']);
+			$myLibro->setValor($libro['valor']);
 			$myLibro->setFecha($libro['fecha']);
 			return $myLibro;
 		}
@@ -59,10 +65,12 @@ require_once('conexion.php');
 		// método para actualizar un libro, recibe como parámetro el libro
 		public function actualizar($libro){
 			$db=Db::conectar();
-			$actualizar=$db->prepare('UPDATE citas SET nombre=:nombre, servicio=:servicio,fecha=:fecha  WHERE ID=:id');
+			$actualizar=$db->prepare('UPDATE citas SET hora=:hora, nombre=:nombre, servicio=:servicio,valor=:valor, fecha=:fecha  WHERE ID=:id');
 			$actualizar->bindValue('id',$libro->getId());
+			$actualizar->bindValue('hora',$libro->getHora());
 			$actualizar->bindValue('nombre',$libro->getNombre());
 			$actualizar->bindValue('servicio',$libro->getServicio());
+			$actualizar->bindValue('valor',$libro->getValor());
 			$actualizar->bindValue('fecha',$libro->getFecha());
 			$actualizar->execute();
 		}
